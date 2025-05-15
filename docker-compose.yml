@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: health
+      MYSQL_USER: fastapi_user
+      MYSQL_PASSWORD: yourpassword
+    ports:
+      - "3307:3306"       # Exposes MySQL on host port 3307
+    volumes:
+      - db_data:/var/lib/mysql
+
+  api:
+    build: .
+    container_name: healthcare-app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8001:8000"
+    environment:
+      DATABASE_URL: "mysql+pymysql://fastapi_user:yourpassword@db:3306/health"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
