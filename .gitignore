@@ -1,0 +1,36 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment
+.env
+.env.*
+
+# Virtual environment folders
+venv/
+env/
+
+# Docker volumes and logs
+db_data/
+*.log
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Pytest and coverage
+.pytest_cache/
+.coverage
+
+# Build/dist
+build/
+dist/
+*.egg-info/
+
+# MkDocs output (if used)
+site/
+
+# System files
+.DS_Store
+Thumbs.db
