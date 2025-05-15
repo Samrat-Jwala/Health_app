@@ -10,7 +10,7 @@ __pycache__/
 # Virtual environment folders
 venv/
 env/
-
+henv/
 # Docker volumes and logs
 db_data/
 *.log
